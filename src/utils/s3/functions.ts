@@ -16,6 +16,9 @@ import { DeleteFile, PreSignedUrl, UploadFile } from "../../types";
 import { s3Clients } from "./index";
 import { logger } from "../../lib/logger";
 
+// Regex to validate the folder path
+const folderRegex = /^\/[^\/\0]+(?:\/[^\/\0]+)*[^\/\0]$/;
+
 // Upload File
 const uploadFile = async ({
   file,
@@ -28,6 +31,12 @@ const uploadFile = async ({
     if (!s3Clients[bucketName]) {
       logger.warn("S3 Client not found - " + bucketName);
       return;
+    }
+
+    if (folder && !folderRegex.test(folder)) {
+      throw new Error(
+        "Invalid folder path. It must start with '/' and not end with '/' and must not contain invalid characters."
+      );
     }
 
     return new Promise(async (resolve, reject) => {

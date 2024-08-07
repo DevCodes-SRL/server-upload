@@ -7,8 +7,6 @@ const s3Clients = {} as Record<string, S3Client>;
 // Create S3 Clients
 const createS3Clients = (options: UploadAgentOptions) => {
   try {
-    logger.log("Creating S3 Clients");
-
     for (let index = 0; index < options.s3.length; index++) {
       logger.log(
         "Creating S3 Client for Bucket: " + options.s3[index].bucketName
@@ -32,3 +30,4 @@ const createS3Clients = (options: UploadAgentOptions) => {
 
 // Export
 export { createS3Clients, s3Clients };
+

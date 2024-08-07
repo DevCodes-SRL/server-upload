@@ -18,8 +18,7 @@
     "uuid": "^10.0.0"
   },
   "publishConfig": {
-    "access": "public",
-    "registry": "https://npm.pkg.github.com"
+    "access": "public"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
@@ -31,6 +30,7 @@
     "tsup": "^8.1.0",
     "typescript": "^5.4.5"
   },
+  "files": ["dist", "REDME.MD", "image"],
   "scripts": {
     "build:link": "tsup && npm link",
     "build": "tsup",
@@ -51,5 +51,5 @@
   "bugs": {
     "url": "https://github.com/DevCodes-SRL/server-upload/issues"
   },
-  "homepage": "https://github.com/nextzero-js/server-upload#readme"
+  "homepage": "https://github.com/DevCodes-SRL/server-upload#readme"
 }
