@@ -38,6 +38,7 @@ const uploadAgent = new UploadAgent({
       accessKey: "",
       bucketRegion: "",
       secretKey: "",
+      isPrivateAccess: true, // Note: This setting does not override inline access permissions.
     },
   ],
 }).create();

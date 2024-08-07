@@ -16,6 +16,9 @@ import { DeleteFile, PreSignedUrl, UploadFile } from "../../types";
 import { s3Clients } from "./index";
 import { logger } from "../../lib/logger";
 
+// Options
+import UploadAgent from "../../index";
+
 // Regex to validate the folder path
 const folderRegex = /^\/[^\/\0]+(?:\/[^\/\0]+)*[^\/\0]$/;
 
@@ -39,13 +42,23 @@ const uploadFile = async ({
       );
     }
 
+    // Get the global options
+    const options = UploadAgent.options;
+
+    // Check if the bucket is private or public
+    const globalIsPrivateAccess = options.s3.find(
+      (item) => item.bucketName === bucketName
+    )?.isPrivateAccess as boolean;
+
+    const inlinedIsPrivateAccess = isPrivateAccess ?? globalIsPrivateAccess;
+
     return new Promise(async (resolve, reject) => {
       const params = {
         Bucket: bucketName,
         Body: file,
         Key: folder ? `${folder}/${uuidv4()}` : uuidv4(),
         ContentType: contentType,
-        ACL: isPrivateAccess ? "private" : "public-read",
+        ACL: inlinedIsPrivateAccess ? "private" : "public-read",
       } as PutObjectCommandInput;
 
       const upload = new Upload({

@@ -3,11 +3,11 @@ import { FileFilterCallback } from "multer";
 
 export interface UploadAgentOptions {
   s3: {
-    isPrivateAccess: boolean;
     bucketName: string;
     bucketRegion: string;
     accessKey: string;
     secretKey: string;
+    isPrivateAccess: boolean;
   }[];
 }
 
