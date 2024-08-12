@@ -36,7 +36,7 @@ export interface DeleteFileFromS3 {
 // Store S3 Interfaces
 export interface UploadFile {
   file: Buffer;
-  folder: string;
+  folder: string | undefined;
   isPrivateAccess: boolean;
   bucketName: string;
   contentType: string;

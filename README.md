@@ -1,6 +1,6 @@
 # DevCodes-SDK Upload Agent 🚀
 
-The `devcodes-sdk/upload-server` provides functionality for handling file uploads, interacting with Amazon S3, and optimizing image files. This document explains how to install and use the provided functions.
+The `devcodes-sdk/server-upload` provides functionality for handling file uploads, interacting with Amazon S3, and optimizing image files. This document explains how to install and use the provided functions.
 
 > **Note**: This version is still in development and testing (beta). It may contain bugs and is not yet considered production-ready.
 
@@ -19,7 +19,7 @@ The `devcodes-sdk/upload-server` provides functionality for handling file upload
 To install the package, run:
 
 ```
-npm install @devcodes-sdk/upload-server
+npm i @devcodes-sdk/server-upload
 ```
 
 ## Setup
