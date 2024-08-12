@@ -4,7 +4,12 @@ import { UploadAgentOptions } from "../../types";
 
 const s3Clients = {} as Record<string, S3Client>;
 
-// Create S3 Clients
+/**
+ * Creates and configures S3 clients for each S3 bucket specified in the options.
+ *
+ * @param options - Configuration options for the upload agent, including S3 bucket details. (Required)
+ * @throws Error if there is an issue during the creation of any S3 client.
+ */
 const createS3Clients = (options: UploadAgentOptions) => {
   try {
     for (let index = 0; index < options.s3.length; index++) {
@@ -30,4 +35,3 @@ const createS3Clients = (options: UploadAgentOptions) => {
 
 // Export
 export { createS3Clients, s3Clients };
-
