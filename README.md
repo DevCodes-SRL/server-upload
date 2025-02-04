@@ -1,6 +1,6 @@
 # DevCodes-SDK Upload Agent 🚀
 
-The `devcodes-sdk/server-upload` provides functionality for handling file uploads, interacting with Amazon S3, and optimizing image files. This document explains how to install and use the provided functions.
+The `@devcodes-sdk/server-upload` provides functionality for handling file uploads, interacting with Amazon S3, and optimizing image files. This document explains how to install and use the provided functions.
 
 > **Note**: This version is still in development and testing (beta). It may contain bugs and is not yet considered production-ready.
 
@@ -99,7 +99,7 @@ Processes files uploaded via an HTTP request and uploads them to S3.
 #### Parameters:
 
 - **req:** (Express Request Object): The HTTP request object.
-- **folder:** (String): S3 folder path. `// Node: It must start with '/' and not end with '/'`
+- **folder:** (String): S3 folder path. `// Note: The folder path must not start or end with '/'`
 - **isPrivateAccess:** (Boolean): Whether the file should be privately accessible.
 - **bucketName:** (String): S3 bucket name.
 - **imageOptimization:** (Boolean): Whether to optimize images.
@@ -128,7 +128,7 @@ Uploads a file directly to S3.
 #### Parameters:
 
 - **file:** (Buffer): File buffer.
-- **folder:** (String): S3 folder path. `// Node: It must start with '/' and not end with '/'`
+- **folder:** (String): S3 folder path. `// Note: The folder path must not start or end with '/'`
 - **isPrivateAccess:** (Boolean): Whether the file should be privately accessible.
 - **bucketName:** (String): S3 bucket name.
 - **imageOptimization:** (Boolean): Whether to optimize images.

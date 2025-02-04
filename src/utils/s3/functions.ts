@@ -20,7 +20,7 @@ import { logger } from "../../lib/logger";
 import UploadAgent from "../../index";
 
 // Regex to validate the folder path
-const folderRegex = /^\/[^\/\0]+(?:\/[^\/\0]+)*[^\/\0]$/;
+const folderRegex = /^[^\/\0][^\/\0]*(?:\/[^\/\0]+)*[^\/\0]$/;
 
 /**
  * Uploads a file to an S3 bucket with optional folder placement and access control.
@@ -47,7 +47,7 @@ const uploadFile = async ({
 
     if (folder && !folderRegex.test(folder)) {
       throw new Error(
-        "Invalid folder path. It must start with '/' and not end with '/' and must not contain invalid characters."
+        "Invalid folder path. It must not start or end with '/' and must not contain invalid characters."
       );
     }
 
